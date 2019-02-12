@@ -8,7 +8,7 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-#retrievieving tweets
+#retrievieving tweets put inside the '' what you are analyzing
 tweets= api.search('')
 #save each Tweet to a CSV file
 #and label each one as either 'positive' or 'negative'
@@ -17,5 +17,4 @@ for tweet in tweets:
     with open('twitterSentimentAnalysis.csv', mode='w') as csv_file:
     fieldnames = ['positive', 'negative']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-
-    writer.writeheader(tweet.text)
+    writer.writeheader(analysis.sentiment)
